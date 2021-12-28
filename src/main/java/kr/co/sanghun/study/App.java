@@ -49,5 +49,20 @@ public class App
             System.out.println(m);
             System.out.println(Modifier.isInterface(modifiers));
         });
+
+        // diff btw declare -> include extended info
+        Arrays.stream(MyBook.class.getAnnotations()).forEach(System.out::println);
+        Arrays.stream(MyBook.class.getDeclaredAnnotations()).forEach(System.out::println);
+
+        Arrays.stream(Book.class.getDeclaredFields()).forEach(field -> {
+            Arrays.stream(field.getAnnotations()).forEach(annotation -> {
+                if (annotation instanceof MyAnnotation) {
+                    MyAnnotation myAnnotation = (MyAnnotation) annotation;
+                    System.out.println(myAnnotation.name());
+                    System.out.println(myAnnotation.value());
+                    System.out.println(myAnnotation.number());
+                }
+            });
+        });
     }
 }

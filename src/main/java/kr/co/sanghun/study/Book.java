@@ -1,15 +1,19 @@
 package kr.co.sanghun.study;
 
+@MyAnnotation("sanghun")
 public class Book {
 
     private static String B = "BOOK";
 
     private static final String C = "BOOK";
 
+    @MyAnnotation
     private String a = "a";
 
+    @MyAnnotation
     public String d = "d";
 
+    @AnotherAnnotation
     protected String e = "e";
 
     public Book() {
